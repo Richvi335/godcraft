@@ -10,6 +10,13 @@
     <button onclick="sendNick()">Отправить</button>
 
     <script>
+        // Инициализируем VK Bridge
+        vkBridge.send("VKWebAppInit").then(() => {
+            console.log("VK Mini App инициализирован");
+        }).catch(error => {
+            console.error("Ошибка инициализации:", error);
+        });
+
         function sendNick() {
             let nickname = document.getElementById("nickname").value;
             if (nickname.trim() === "") {
